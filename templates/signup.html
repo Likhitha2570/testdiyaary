@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+{% load static %}  
+{%block title%}  SignUp {%endblock title%}
+{%block body%}
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/style.css' %}">
+{% endblock cssfile %}
+<style>
+  h4{
+  text-align:center;
+        color:white;
+        padding: 10px 0px 10px 0px ;
+      }
+      p{
+        color:red;
+        
+        margin-top:60px;  
+      }
+      .error{
+        color:red;
+        margin-top:20px;
+         /*margin-left:2px;  */
+      }
+</style> 
+  
+<div class="signupcont">
+<form action="{% url 'usersignup' %}" method="post" novalidate>
+  {% comment %} novalidate is used to avoid errors  shows by html 5  when we submit form without details{% endcomment %}
+{% csrf_token %}
+{% if form.non_field_errors%}
+   {% for error in form.non_field_errors%}
+    <p>{{error}}</p>
+   {% endfor %} 
+{% endif %} 
+
+<div class="shadow-lg p-3 mt-2 bg-body rounded  ">   
+  <h4>Signup here</h4> 
+      
+{% for fm in form%}
+ {{fm.label_tag}} {{fm}} <small class="error"> {{fm.errors|striptags}}<br><br> </small> 
+{% endfor%}
+ 
+  {% comment %} {{form.as_p}} for overall  {% endcomment %}
+   
+<input type="submit"  class="usersignup" value="SignUp">
+
+
+<a href="{% url 'userlogin' %}">Login here</a> 
+</div> 
+{% for msg in messages %}
+        <div class="alertstyle" role="alert">
+            <strong>{{msg.message}}</strong> 
+          </div>
+
+{% endfor%}
+        
+
+
+</div> 
+</form>       
+{%endblock body%}
+ 

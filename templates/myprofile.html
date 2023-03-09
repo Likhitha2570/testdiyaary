@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load static %}  
+{%block title%}My Profile {%endblock title%}
+{%block body%}
+<style>
+  h3{
+    text-align: center;
+    color: white;
+  }
+</style>
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors%}
+   {% for error in form.non_field_errors%}
+    <p>{{error}}</p>
+   {% endfor %} 
+{% endif %} 
+<div class="shadow-lg p-5  bg-body rounded  ">
+  <h3>Profile</h3>
+{% for fm in form%}
+  {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+{% endfor%}
+    
+    <input type="submit" class="myprofileedit" value="edit">
+     
+    <a href="{% url 'deletemyaccount' user.username %}" class="deleteaccount" onclick="return confirm('Are you sure you want to delete your account?')">Delete account</a>
+
+</div>
+</form>
+{% for msg in messages %}
+        <div class="alert alert-success" role="alert">
+            <strong>{{msg.message}}</strong> 
+          </div>
+{% endfor%}
+
+{%endblock body%}

@@ -1,0 +1,59 @@
+{%extends 'base.html'%} 
+{% load static %}  
+{%block title%} Update {%endblock title%}
+
+{% block body %} 
+<script type="text/javascript" src="{%static 'js/hello.js'%}"></script>
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/entries.css' %}">
+{% endblock cssfile %} 
+
+{% comment %} {% url 'myentries' diaryentry.dailytime %} {% endcomment %}
+<h1 class="journey" >Update here!!!</h1> 
+ 
+{% comment %} {% for entry in diaryentry %} {% endcomment %}
+<form method="post" action= ""  enctype="multipart/form-data" > 
+    {% csrf_token%}
+    <div id="left">  
+        <label for="place"><strong>Place</strong></label>
+    <div class="entriesstyle">
+        <input type="text" class="inputstyle" name="myplace" id="place"value="{{diaryentry.place}}" required>
+    </div> 
+    <label for="title"> <strong>Title</strong></label>
+    <div class="entriesstyle">
+        <textarea name="mytitle" class="inputstyle" cols="90" rows="3" id="title"  required>{{ diaryentry.title }}</textarea>
+    </div>
+    <label for="text"><strong>Enter ur story</strong></label>
+    <div class="entriesstyle">
+        <textarea name="mytext" class="inputstyle" cols="90" rows="10" id="text"  required>{{diaryentry.dailyentry}}</textarea>
+    </div> 
+    
+    {% comment %} <label for="signupsubmit" ></label> {% endcomment %}
+    <div>
+        <button type="submit" class="sub" >Update</button>
+        {% comment %} <input type="submit" name="signupmysubmit" id="signupsubmit" class="sub"> {% endcomment %}
+    </div>
+</div>
+</div>
+<p><input type="file"  accept='image/*' name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;"><strong>Upload Image</strong></label></p>
+<p><img id="output" width="300"  height="500" src="{{ diaryentry.image.url }}" /></p>
+ 
+</form> 
+ 
+ 
+{% comment %} for emoji {% endcomment %}
+<script> 
+                $('#text').emojioneArea({
+                    pickerPosition: 'top'
+                });
+                </script>
+{% comment %} for emoji {% endcomment %}
+
+{% endblock body %}
+
+  
+
+
+
+ 

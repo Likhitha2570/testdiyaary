@@ -1,0 +1,76 @@
+{%extends 'base.html'%} 
+{% load static %} 
+{%block title%} My entries {%endblock title%}
+ 
+{% block body %} 
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/style.css' %}">
+{% endblock cssfile %} 
+     
+
+     
+  
+ 
+<h2 class="come"> Come, let's get nostalgic once again!!!   </h2>     
+<form method="post"  >
+     
+    {% csrf_token %}
+    <div class="search">
+    <input type="text" name="searched" placeholder="type here" value=""/>
+    <input type="submit" value="search"/>
+    <span class="from"><strong>From:  </strong></span><input type="date" name="searcheddatestart" value=""/>
+    <span class="to"><strong>To:  </strong></span><input type="date" name="searcheddateend" value=""/>
+    <input type="submit" value="search"/>
+    </div>
+</form >      
+    
+<div class="col-md-12">
+                   
+                      
+                          <div class="card">
+                              <h5 class="card-header"> <span class="info"><span>My Entries </span><strong>{{my_entries.count}}</strong></span></h5>
+                              <div class="card-body">
+                                  
+              <article class="media">
+                  <div class="media-content">
+                      <div class="content">
+                     
+                         {% for entry in my_entries %} 
+                             
+                           <div class="line"><span class="design"><strong>Date:   </strong><span>{{entry.dailydate}}</div>
+                           <div class="line"><span class="design"><strong>Time:   </strong><span>{{entry.dailytime}}</div>
+                           <div class="line"><span class="design"><strong>Place:   </strong><span>{{entry.place}}</div>
+                            
+                           <div class="line"><span class="design"><strong>Title:   </strong><span>{{entry.title}} </div>
+                           <div class="line"><span class="design"><strong>Enter your story:   </strong><span>{{entry.dailyentry}}</div>
+                            {% if entry.image %}
+                          
+                              <div class="imagediary"> <img src="/media/{{entry.image}}"  alt="No image"   width="200px" height="200px"></div> 
+                              
+                            {% else %} 
+                            <div class="imagediary"><img src= {%static 'images/not available.png'%} width="200px" height="200px"></div>
+                            {% endif %} 
+                        <div class="ed" >
+                        <a href="{% url 'updateentry' entry.dailytime %}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+                        <form method="post" action={% url 'deleteentry' entry.dailytime%} class="d-inline" > 
+                        {% csrf_token%} 
+                        {% comment %} <input type="submit"   class="btn btn-danger"  value="Delete"> {% endcomment %}
+                        <button type="submit" class="btn btn-danger"><i class="fa-sharp fa-regular fa-trash"></i> Delete</button>
+                        {% comment %} <a href="{% url 'deleteentry' dailytime=entry.dailytime  %}"  class="btn btn-danger"><i class="fa fa-trash"></i>Delete</a> {% endcomment %}
+                        </form>  
+                        </div>  
+                        <br>
+                        <br>
+                                
+                         {% endfor %}   
+     
+                  </div>
+              </article>
+         
+                                  
+                              </div>
+                          </div>     
+                      </div>   
+
+                     
+                    {% endblock body %} 

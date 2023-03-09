@@ -1,0 +1,56 @@
+{%extends 'base.html'%}{%load static%}  {%block title%}   My gallery {%endblock title%}
+{% block body %} 
+<style>
+    .count{
+        color:#dc3ec1;
+        background-color:white;
+        border-radius:10px;
+        padding:0px 1px 0px 1px;
+        margin-left:10px;
+    }
+</style>  
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/style.css' %}">
+{% endblock cssfile %} 
+<div class="container">
+    {% comment %} <div class="py-5 text-center bg-dark text-white m" > {% endcomment %}
+    <div class="gallery" >
+        {% comment %} <h1 class="mb-3">Upload Image</h1>   {% endcomment %}
+        <form action=" "method="post" enctype="multipart/form-data">
+              
+            {% csrf_token%}
+            {{form}}
+            <input type="submit" class="button" value="Upload">    
+        </form>
+        
+    </div>
+    <div class="row pt-5px">
+             
+            <h2 class= "mt-5">All your captures are here!!!<span class='count'><strong>{{Gallery.count}}</strong></span></h2>
+             
+        
+        {% comment %} <h2 class= "mt-5">All your captures are here!!!{{Gallery.count}}</h2> {% endcomment %}
+      {%if Gallery%}  
+        {% for x in Gallery%}
+        {% if x.user == request.user %}
+        <div class="col-sm-4 pt-3">
+            <div class="card m-2">
+                <img src="{{x.Allimages.url}}" alt="" class="card-img-top" height="200px">
+            
+                <div class="card-footer">
+                    <small class="text-muted"><strong>{{x.caption}} </strong>|</small>
+                    <small class="text-muted">{{x.date}}</small>
+                    <form method="post" action={% url 'deletegallery' x.caption%} class="d-inline" > 
+                        {% csrf_token%} 
+                        <button type="submit" class="btn btn-danger"><i class="fa-sharp fa-regular fa-trash"></i> Delete</button>
+                        </form>     
+                   
+                </div>
+            </div>
+        </div>
+        
+          {% endif%}
+        {%endfor%}
+    {% endif%}   
+</div>
+{% endblock body %}

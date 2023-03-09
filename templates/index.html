@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{% load static %}  
+{%block title%} Home {%endblock title%}
+{%block body%}
+
+{% block cssfile%}  
+<link rel="stylesheet"  href="{% static 'css/style.css' %}">  
+{% endblock cssfile%} 
+ 
+{% for msg in messages %}
+<div class="alert alert-success" role="alert">
+    <strong>{{msg.message}}</strong> 
+  </div>
+{% endfor%}
+   <div class="bg">
+    
+    
+   </div>
+ 
+ {%endblock body%}
+ 

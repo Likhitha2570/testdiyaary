@@ -1,0 +1,45 @@
+{%extends 'base.html'%} 
+{% load static %} 
+{%block title%} My Favourites {%endblock title%}
+{% block body %}
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/style.css' %}">
+{% endblock cssfile %} 
+<h2 class="come">getting you the best once again!!!   </h2>     
+<div class="col-md-12">
+<div class="card">
+<h5 class="card-header"> <span class="info"><span>My Favourites </span><strong>{{entries.count}}</strong></span></h5>
+<div class="card-body">
+<article class="media">
+<div class="media-content">
+<div class="content">
+{% if entries %}
+
+ {% for entry in entries %}
+ <div class="divs" > 
+<div class="line"><span class="design"><strong>Date:   </strong><span>{{entry.dailydate}}</div>
+<div class="line"><span class="design"><strong>Time:   </strong><span>{{entry.dailytime}}</div>
+<div class="line"><span class="design"><strong>Place:   </strong><span>{{entry.place}}</div>
+<div class="line"><span class="design"><strong>Title:   </strong><span>{{entry.title}}</div>
+<div class="line"><span class="design"><strong>Enter your story:   </strong><span>{{entry.dailyentry}}</div>
+    {% if entry.image %}
+<div class="imagediary"> <img src="/media/{{entry.image}}"  alt="No image"   width="200px"height="200px"></div> 
+    {% else%}    
+    <div class="imagediary"><img src= {%static 'images/not available.png'%} width="200px" height="200px"></div>
+     
+</div>  
+     {% endif %}
+
+ 
+ {% endfor %} 
+
+{% endif %}
+</div> 
+</div>
+</article>
+</div>
+</div>     
+</div>   
+
+                     
+{% endblock body %} 

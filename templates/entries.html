@@ -1,0 +1,68 @@
+{%extends 'base.html'%} 
+{% load static %}  
+{%block title%}entries {%endblock title%}
+{% block body %} 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css">
+<script type="text/javascript" src="{%static 'js/hello.js'%}"></script>
+{% comment %} jquery cdn {% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+{% comment %} jquery cdn {% endcomment %}
+
+{% comment %} jquery emoji cdn {% endcomment %}
+<script src=https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js></script>
+{% comment %} jquery emoji cdn {% endcomment %}
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/entries.css' %}">
+{% endblock cssfile %} 
+
+ 
+<h1 class="journey" >Let's get bit closer...</h1> 
+ 
+ 
+<form method="post" action={% url 'entries'%} enctype="multipart/form-data"> 
+{% csrf_token%}
+    <div class="shadow-lg  bg-body rounded  ">
+    <div id="left">  
+   <label for="date"> <strong>Date</strong></label>
+    <div class="entriesstyle">
+        <input type="date"  class="inputstyle" name="dailydate" id="date" required>
+    </div>
+    <label for="time"><strong>Time</strong></label>
+    <div class="entriesstyle">
+        <input type="time"class="inputstyle" name="dailytime" id="time" step="1" required>
+    </div>
+    <label for="place"><strong>Place</strong></label>
+    <div class="entriesstyle">
+        <input type="text" class="inputstyle" name="myplace" id="place" required>
+    </div> 
+    <label for="title"> <strong>Title</strong></label>
+    <div class="entriesstyle">
+        <textarea name="mytitle" class="inputstyle" cols="60" rows="2" id="title" required></textarea>
+    </div>
+    <label for="text"><strong>Enter ur story</strong></label>
+    <div class="entriesstyle">
+        <textarea name="mytext" class="inputstyle" cols="60" rows="10" id="text"></textarea>
+    </div> 
+    <label for="signupsubmit" >   </label>
+    <div>
+        <input type="submit" name="signupmysubmit" id="signupsubmit" class="sub">
+    </div>
+    <div class="checkbox">
+        <strong style="color: #ffffff">Is it important:</strong><input type="checkbox" name="mycheckbox" id="checkbox">
+    </div>  
+</div>
+</div>
+<p><input type="file"  accept='image/*' name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;"><strong>Upload Image</strong></label></p>
+<p><img id="output" width="300"  height="500"  /></p>
+</form> 
+ 
+{% comment %} for emoji {% endcomment %}
+<script> 
+    $('#text').emojioneArea({
+        pickerPosition: 'top'
+    });
+    </script>
+{% comment %} for emoji {% endcomment %}
+
+{% endblock body %}

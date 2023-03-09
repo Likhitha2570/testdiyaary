@@ -1,0 +1,60 @@
+ 
+   {%extends 'base.html'%}
+   {% load static %}  
+   {%block title%}Login{%endblock title%}
+   {%block body%}
+    <style>
+      .col-xs-8 label{
+        margin-left:530px;
+      }
+      h4{
+        text-align:center;
+        color:white;
+        padding: 20px; 
+      }
+      p{
+        color:red;
+         margin-top: 60px;   
+      }
+      .error{
+        color:red;
+      }
+      .cpass{
+        margin-left:180px;
+      }
+      .shere{
+        margin-left:23px;
+      }
+    </style>
+    
+<div class="login">
+<form method="post" action={% url 'userlogin' %} novalidate>  
+  {% csrf_token%}
+  {% comment %} this is used to show errors for wrong credentials {% endcomment %}
+  {% if form.non_field_errors%}
+   {% for error in form.non_field_errors%}
+    <p>{{error}}</p>
+   {% endfor %} 
+  {% endif %} 
+  <div class="shadow-lg p-2 mt-2 bg-body rounded  "> 
+    <h4>login here</h4>
+    
+    <div class="loginlabel"  >
+{% for fm in form%}
+  {{fm.label_tag}} {{fm}} <small class="error">{{fm.errors|striptags}}<br><br></small>
+{% endfor%}
+    <input type="submit" class="userlogin" value="Login"><br>
+     
+  <a class="shere"href="{% url 'usersignup' %}">SignUp here</a>
+  <a class="cpass" href="{% url 'changepassword'%}">Change password</a>
+  </form>
+  {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                <strong>{{msg.message}}</strong>  
+            </div> 
+          
+  {% endfor%} 
+</div> 
+          </div>         
+          </div>         
+{%endblock body%}

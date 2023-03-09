@@ -1,0 +1,432 @@
+body{
+    height:100vh;
+    width:100%;
+    background-repeat: no-repeat;
+    background-color: rgb(25, 5, 97);
+    font-family:cursive;
+}  
+
+
+a{
+    color:#dc3ec1
+}
+
+
+h3{
+    color:rgb(255, 0, 0)  
+}
+
+
+h1{
+     
+     color:rgb(252, 251, 253);
+     text-align: center;  
+}
+
+
+h1.us{
+    margin-left:280px;  
+   margin-bottom:50px;
+   margin-top:10px;  
+} 
+
+
+.firstspan{
+  color:rgb(126, 100, 238);
+  font-weight : bold;
+}
+
+div.bg{
+  background:url("/static/images/diarybgb.png");
+  background-repeat:no-repeat;
+  width: 800px;
+  height: 500px; 
+  margin-left: 500px;
+  margin-top: 100px;   
+} 
+
+
+nav ul li{
+    color: red;
+}
+
+
+.navname{
+    color:#f8f4f7;
+    margin-top: 5px;
+    margin-right: 20px;
+    background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+    border-radius: 15px;
+    padding:2px 20px 2px 20px;  
+}   
+
+
+
+label{
+    color:rgb(250, 249, 250);
+}
+
+input::placeholder {
+    color:  rgb(23, 23, 24);
+       }
+
+
+     
+
+/* .signup ,.signout{
+  color: rgb(247, 253, 248);  
+  border-radius: 20px;
+  border: transparent;
+  padding-left: 40px; 
+  padding-right: 40px; 
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+  outline :none;
+}  */
+
+
+.us{
+  letter-spacing:1px;
+  width: 60%;   
+  display: inline-block;
+  white-space: nowrap;
+  overflow:hidden;
+  animation:
+                typing 5s  ,
+               cursor .1s step-end infinite alternate;  
+    
+   }
+   /* cursor blinking */
+   @keyframes cursor{
+    50%{
+      border-color:transparent
+    }
+   }
+    /*  typing effects */
+    @keyframes  typing{
+      from {width:0}
+    }
+
+ /* myentries.html     */
+ h2{
+  margin-left:  450px;  
+  margin-bottom: 25px;
+  margin-top: 10px;  
+  color:rgb(246, 245, 249);
+}
+
+/* imp */
+.info{
+       color:#dc3ec1;
+       border-radius: 5px;
+        
+  }
+
+
+/* signup.html */
+.signupbutton{
+  color:#f8f4f7;
+  margin-left: 600px; 
+  margin-top: 20px; 
+  padding-left:25px;
+  padding-right:20px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+  border-radius: 15px;
+  text-align: center;
+  border-style:none;
+}
+
+
+.signupcont{
+margin-top:70px;
+margin-left:150px;
+width:80%;
+}
+
+
+.logincont{
+    margin-top:170px;
+    margin-left:150px;
+    width:80%;
+}
+
+
+.alertstyle{
+  background-color: #f89b9b;
+  text-align:center;
+  color:#f1022e;
+  margin-top:40px;
+  padding:15px 0px 15px 0px; 
+  }  
+
+.alertstylelogin{
+  background-color: #90f7bb;
+  text-align:center;
+  color:#05d138;
+  margin-top:40px;
+  padding:15px 0px 15px 0px; 
+}
+
+
+.come{
+  letter-spacing:1px;
+  width: 40%;  
+  display: inline-block;
+  white-space: nowrap;
+  overflow:hidden;
+  animation:
+                typing 5s,
+               cursor .1s step-end infinite alternate;  
+    
+   }
+   /* cursor blinking */
+   @keyframes cursor{
+    50%{
+      border-color:transparent
+    }
+   }
+    /*  typing effects */
+    @keyframes  typing{
+      from {width:0}
+    }
+ 
+h2{
+  margin:30px 0px 25px 390px;
+  color:#f5f5f6;
+}
+   
+.line{
+  padding:5px;
+}
+
+
+.design{
+  color:#7e64e2
+}
+
+
+.imagediary{
+  padding:5px;
+}
+       
+.col-md-12{
+ padding-top:20px
+}
+
+
+.search{
+  margin-left:400px;
+}
+   
+.from,.to{
+  color:white
+}
+
+/*dropdown styling  */
+.dropdown-toggle   {
+  color:#f8f4f7;
+  margin-top: 5px;
+  margin-right: 30px; 
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+  border-radius: 15px; 
+  padding:2px 20px 2px 20px;
+}
+
+.dropdown-toggle:hover{
+  color:#f1ebf7;
+}
+
+.dropdown-item {
+  color:#7e64e2
+}
+
+.dropdown-item:hover{
+  color:#dc3ec1;
+}
+ 
+.navbar{
+  height:50px;
+}
+
+.login{
+ position: absolute;
+ top:50%;
+ left:50%;
+ transform:translate(-50%,-50%)  
+}
+
+
+  /*  imp  */
+.form-control{
+  width:70%;
+  padding: 2.5px;
+  margin: -4.5px;
+  text-align:center;
+  margin-bottom: -25px;
+  margin-left:135px;
+  transition: all 0.3s;   
+}
+
+.form-control form-control-sm{
+  width:70%;
+  padding: 2.5px;
+  margin: -4.5px;
+  text-align:center;
+  margin-bottom: -25px;
+  margin-left:135px;
+  transition: all 0.3s;
+}
+ 
+label{
+  margin-left:100px; 
+   
+} 
+ 
+
+   
+
+.p-3{
+  width:70%;
+  height:70%;
+  margin-left: 222px;
+}  
+
+
+.p-2{
+  width:70%;
+  height:70%;
+  margin-left:110px;
+}
+
+
+.style label{
+  margin-left:1850px;
+  font-weight: 400;
+}
+
+.col-xs-8{
+ margin-left:130px;
+}
+    
+
+.p-5{
+  width:50%;
+  height:65%;
+  margin-left: 350px;
+  margin-top: 100px;
+} 
+
+
+.p-6{
+  width:35%;
+  height:65%;
+  margin-left: 475px;
+  margin-top: 250px;
+}  
+
+
+.p-7{
+  width:70%;
+  height: 95%;
+  margin-left: 230px;
+  text-align: center;
+}  
+
+.passwordsave{
+  color:rgb(246, 243, 245);
+  margin-left: 220px; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+  background-color:#7e64ee; 
+  border-style: none;
+  border-radius: 10px;
+  padding:4px 8px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+}
+
+.myprofileedit{
+  color:rgb(246, 243, 245);
+  margin-left: 350px; 
+  margin-top: 10px; 
+  background-color:#7e64ee; 
+  border-style: none;
+  border-radius: 10px;
+  padding:4px 8px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+}
+
+.userlogin{
+  color:rgb(246, 243, 245);
+  margin-left: 203px; 
+  margin-top: 10px; 
+  margin-bottom: 10px;  
+  background-color:#7e64ee; 
+  border-style: none;
+  border-radius: 10px;
+  padding:4px 8px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+}
+
+
+.usersignup{
+  color:rgb(246, 243, 245);
+  margin-left: 400px; 
+  margin-top: 10px; 
+  margin-bottom: 10px;  
+  background-color:#7e64ee; 
+  border-style: none;
+  border-radius: 10px;
+  padding:4px 8px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+}
+
+.mb-3{
+  text-align: center;
+}
+
+
+.divs {
+  margin-bottom:40px;
+} 
+
+
+.btn btn-primary{
+  padding-left:18px;
+}  
+
+/* My gallery */
+
+/* imp */
+label[for=id_caption] {
+  margin-left: 28px;
+}
+
+/* imp(upload button) */
+.button{
+  color:rgb(246, 243, 245);
+  margin-left: 45px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  background-color:#7e64ee; 
+  border-style: none;
+  border-radius: 10px;
+  padding:2px 20px;
+  background-image: linear-gradient(to left,#7e64e2,#dc3ec1);
+}
+
+/* imp */
+#id_new_password2{
+  margin-left:200px;
+} 
+
+
+/* imp */
+#id_new_password1{
+  margin-left:200px;
+} 
+
+
+
+.form-control:focus, .form-control-sm:focus {
+  border-color: #007bff;
+  outline: none;
+}

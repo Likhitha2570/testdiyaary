@@ -1,0 +1,46 @@
+{%extends 'base.html'%} 
+{% load static %}  
+{%block title%}Edit Profile {%endblock title%}
+
+{% block body %} 
+{% block cssfile %}
+<link rel="stylesheet"   href="{% static 'css/style.css' %}">
+{% endblock cssfile %} 
+
+{% comment %} <div class="signupcont" > {% endcomment %}
+  <div class="shadow-lg p-5 mt-2 bg-body rounded  ">
+    <form method="post" action={% url 'editprofile'%}>
+    {% csrf_token%}
+    
+     <div class="form-group">
+          <label for="exampleInputName"><strong>User Name</strong></label>
+          <input type="text" class="form-control" name="username" id="exampleInputEmail1"   placeholder="enter username">
+           
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail"><strong>Email</strong></label>
+          <input type="email" class="form-control" name="email" id="exampleInputPassword1" placeholder="email@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1"><strong>New Password</strong></label>
+            <input type="password" class="form-control" name="newpassword" id="exampleInputPassword1" placeholder="enter password">
+          </div>  
+          <div class="form-group">
+            <label for="exampleInputPassword2"><strong>Confirm Password</strong></label>
+            <input type="password" class="form-control" name="confirmnewpassword" id="exampleInputPassword1" placeholder="confirm password">
+          </div>
+          <button type="submit" class="signupbutton"><strong>Submit</strong></button>
+        </div>
+        {% for msg in messages %}
+        <div class="alertstylelogin" role="alert">
+            <strong>{{msg.message}}</strong> 
+          
+        </div>   
+        {% endfor %}
+      
+     
+    
+      </form> 
+    </div> 
+    
+{% endblock body %} 
