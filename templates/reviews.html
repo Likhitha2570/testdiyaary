@@ -3,13 +3,17 @@
 {%block title%}  Reviews {%endblock title%}
 {% block body %} 
 <style>
+  .card{
+    margin:20px;
+    text-align: center;
+  }
   .card-header,.card-body{
     background-color:white;
     color:#7e64ee;
     padding-left: 20px;
   }
   .row{
-    margin:20px 15px 0px 85px;
+    margin:20px 15px 0px 51px;
   }
   h4{
     color:white;
@@ -54,12 +58,22 @@
         <div class="row flex-row">
           {% for rev in allreviews %}
             {% comment %} <div class="col-sm-6 col-md-4 col-lg-3 mb-3"> {% endcomment %}
-              <div class="col-sm-4 mb-3">
+              {% comment %} <div class="col-sm-4 mb-3">
               <div class="card text-bg-info">
                 <div class="card-header">{{rev.name}}</div>
                 <div class="card-body">
                   <p class="card-text">{{rev.review}}</p>
                 </div>
+              </div>
+            </div> {% endcomment %}
+
+
+            
+            <div class="card p-20px" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{rev.name}}</h5>
+                <p class="card-text">{{rev.review}}</p>
+                 
               </div>
             </div>
           {% endfor %}
